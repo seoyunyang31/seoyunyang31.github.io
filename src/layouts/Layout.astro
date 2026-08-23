@@ -1,21 +1,13 @@
 ---
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
+import FolderDock from "../components/FolderDock.astro";
 
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
-
-const navItems = [
-	{ href: "/", label: "Home" },
-	{ href: "/experience/", label: "Experience" },
-	{ href: "/projects/", label: "Projects" },
-	{ href: "/extracurriculars/", label: "Extracurriculars" },
-];
-
-const currentPath = Astro.url.pathname;
 ---
 
 <html lang="en">
@@ -26,22 +18,17 @@ const currentPath = Astro.url.pathname;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap" rel="stylesheet" />
 	</head>
 	<body>
-		<nav class="site-nav">
-			<ul>
-				{
-					navItems.map((item) => (
-						<li>
-							<a href={item.href} aria-current={currentPath === item.href ? "page" : undefined}>
-								{item.label}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</nav>
+		<header class="app-bar">
+			<div class="app-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+			<a class="site-title" href="/">Seoyun's Website</a>
+		</header>
 		<slot />
 		<Footer />
+		<FolderDock />
 	</body>
 </html>

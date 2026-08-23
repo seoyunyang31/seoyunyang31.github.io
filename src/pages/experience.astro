@@ -1,30 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import GalleryCard from "../components/GalleryCard.astro";
-
-const experiences = [
-	{
-		title: "Role",
-		subtitle: "Company",
-		duration: "Duration",
-		description: "Descriptions",
-		photos: [{ placeholder: "photo" }, { placeholder: "photo" }],
-	},
-	{
-		title: "Role",
-		subtitle: "Company",
-		duration: "Duration",
-		description: "Descriptions",
-		photos: [{ placeholder: "photo" }],
-	},
-];
+import FileCard from "../components/FileCard.astro";
 ---
 
-<Layout title="Seoyun Yang — Experience">
+<Layout title="Seoyun Yang — Professional Experience">
 	<main>
-		<h1>Experience</h1>
-		<div class="gallery-grid">
-			{experiences.map((exp) => <GalleryCard {...exp} />)}
-		</div>
+		<h1>Professional Experience</h1>
+
+		<FileCard filename="EXPERIENCE_1.PNG" photoPlaceholder="photo">
+			<p><span class="field-label">Role:</span> Role</p>
+			<p><span class="field-label">Company:</span> Company</p>
+			<p><span class="field-label">Duration:</span> Duration</p>
+			<p>
+				<span class="field-label description-label">Description:</span>
+				Descriptions
+			</p>
+		</FileCard>
+
+		<FileCard filename="EXPERIENCE_2.PNG" photoPlaceholder="photo" reverse>
+			<p><span class="field-label">Role:</span> Role</p>
+			<p><span class="field-label">Company:</span> Company</p>
+			<p><span class="field-label">Duration:</span> Duration</p>
+			<p>
+				<span class="field-label description-label">Description:</span>
+				Descriptions
+			</p>
+		</FileCard>
 	</main>
 </Layout>

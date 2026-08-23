@@ -1,47 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Polaroid from "../components/Polaroid.astro";
-import PlainPhoto from "../components/PlainPhoto.astro";
-
-const teasers = [
-	{ href: "/experience/", label: "Experience", placeholder: "experience" },
-	{ href: "/projects/", label: "Projects", placeholder: "projects" },
-	{ href: "/extracurriculars/", label: "Extracurriculars", placeholder: "extracurriculars" },
-];
+import FileCard from "../components/FileCard.astro";
 ---
 
 <Layout title="Seoyun Yang">
 	<main>
-		<header>
-			<h1>Hi! I'm Seoyun</h1>
-			<h1>Welcome to my website :)</h1>
-		</header>
+		<FileCard filename="ABOUT_MYSELF.PNG" photoPlaceholder="photo of myself" photoAspect="3 / 4">
+			<p><span class="field-label">Name:</span> Seoyun Yang</p>
+			<p>
+				<span class="field-label description-label">Description:</span>
+				Hi! My name is Seoyun, Thank you for visiting my website! blahblahblah
+			</p>
+		</FileCard>
 
-		<section class="row">
-			<Polaroid placeholder="polaroid like image of myself" rotate={-4} />
-			<div class="text">Write a short, warm 2–4 sentence bio here.</div>
-		</section>
-
-		<section class="row reverse">
-			<PlainPhoto placeholder="image about school" />
-			<div class="details">
-				<p>Degree</p>
-				<p>School</p>
-				<p>Major</p>
-				<p>Period</p>
-			</div>
-		</section>
-
-		<p class="section-label">More about me</p>
-		<div class="teaser-grid">
-			{
-				teasers.map((teaser) => (
-					<a class="teaser-card" href={teaser.href}>
-						<PlainPhoto placeholder={teaser.placeholder} />
-						<p class="label">{teaser.label}</p>
-					</a>
-				))
-			}
-		</div>
+		<FileCard filename="EDUCATION_BACHELORS.PNG" photoPlaceholder="university of toronto crest" photoAspect="1 / 1" reverse>
+			<p><span class="field-label">Institution:</span> University of Toronto</p>
+			<p><span class="field-label">Degree:</span> Applied Science and Engineering</p>
+			<p><span class="field-label">Major:</span> Engineering Science / Machine Intelligence</p>
+			<p><span class="field-label">Minor:</span> Robotics and Mechatronics</p>
+			<p><span class="field-label">Duration:</span> 2022 – 2026</p>
+		</FileCard>
 	</main>
 </Layout>

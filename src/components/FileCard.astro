@@ -1,0 +1,24 @@
+---
+import PlainPhoto from "./PlainPhoto.astro";
+
+interface Props {
+	filename: string;
+	photoPlaceholder?: string;
+	photoSrc?: string;
+	photoAlt?: string;
+	photoAspect?: string;
+	reverse?: boolean;
+}
+
+const { filename, photoPlaceholder = "photo", photoSrc, photoAlt = "", photoAspect = "4 / 3", reverse = false } = Astro.props;
+---
+
+<section class={`file-card ${reverse ? "reverse" : ""}`}>
+	<PlainPhoto class="file-card-photo" src={photoSrc} alt={photoAlt} placeholder={photoPlaceholder} aspect={photoAspect} />
+	<div class="file-card-body">
+		<p class="filename">{filename}</p>
+		<div class="fields">
+			<slot />
+		</div>
+	</div>
+</section>

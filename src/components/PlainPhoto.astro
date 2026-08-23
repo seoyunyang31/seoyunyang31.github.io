@@ -3,12 +3,13 @@ interface Props {
 	src?: string;
 	alt?: string;
 	placeholder?: string;
+	aspect?: string;
 	class?: string;
 }
 
-const { src, alt = "", placeholder = "photo", class: className = "" } = Astro.props;
+const { src, alt = "", placeholder = "photo", aspect = "4 / 3", class: className = "" } = Astro.props;
 ---
 
-<div class={`plain-photo ${className}`}>
+<div class={`plain-photo ${className}`} style={`aspect-ratio: ${aspect};`}>
 	{src ? <img src={src} alt={alt} /> : <span>{placeholder}</span>}
 </div>
