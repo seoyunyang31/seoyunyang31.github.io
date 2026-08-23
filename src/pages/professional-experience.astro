@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PolaroidStack from "../components/PolaroidStack.astro";
+
+const experiences = [
+	{
+		role: "Role",
+		company: "Company",
+		duration: "Duration",
+		description: "Descriptions",
+		photos: [{ placeholder: "images at exp 1" }, { placeholder: "images at exp 1" }],
+	},
+	{
+		role: "Role",
+		company: "Company",
+		duration: "Duration",
+		description: "Descriptions",
+		photos: [{ placeholder: "images at exp 2" }, { placeholder: "images at exp 2" }],
+	},
+];
+---
+
+<Layout title="Seoyun Yang — Professional Experience">
+	<main>
+		<h1>Professional Experience</h1>
+		{
+			experiences.map((exp, i) => (
+				<section class={`row ${i % 2 === 1 ? "reverse" : ""}`}>
+					<PolaroidStack photos={exp.photos} />
+					<div class="details">
+						<p>{exp.role}</p>
+						<p>{exp.company}</p>
+						<p>{exp.duration}</p>
+						<p class="description">{exp.description}</p>
+					</div>
+				</section>
+			))
+		}
+	</main>
+</Layout>

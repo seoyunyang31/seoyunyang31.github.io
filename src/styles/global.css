@@ -21,6 +21,43 @@ body {
 	line-height: 1.5;
 }
 
+.site-nav {
+	position: sticky;
+	top: 0;
+	background: var(--color-bg);
+	border-bottom: 1px solid var(--color-bar-border);
+	z-index: 10;
+}
+
+.site-nav ul {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 0 1.5rem;
+	display: flex;
+	gap: 1.75rem;
+	list-style: none;
+	overflow-x: auto;
+}
+
+.site-nav a {
+	display: inline-block;
+	padding: 1rem 0;
+	color: var(--color-text-muted);
+	text-decoration: none;
+	font-weight: 600;
+	white-space: nowrap;
+	border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover {
+	color: var(--color-text);
+}
+
+.site-nav a[aria-current="page"] {
+	color: var(--color-text);
+	border-bottom-color: var(--color-text);
+}
+
 main {
 	max-width: var(--max-width);
 	margin: 0 auto;
