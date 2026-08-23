@@ -1,0 +1,15 @@
+---
+interface Props {
+	src?: string;
+	alt?: string;
+	placeholder?: string;
+	rotate?: number;
+	style?: string;
+}
+
+const { src, alt = "", placeholder = "photo", rotate = 0, style = "" } = Astro.props;
+---
+
+<div class="polaroid" style={`transform: rotate(${rotate}deg); ${style}`}>
+	{src ? <img src={src} alt={alt} /> : <div class="placeholder">{placeholder}</div>}
+</div>

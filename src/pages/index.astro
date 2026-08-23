@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Polaroid from "../components/Polaroid.astro";
+import PolaroidStack from "../components/PolaroidStack.astro";
+
+const experiences = [
+	{
+		role: "Role",
+		company: "Company",
+		duration: "Duration",
+		description: "Descriptions",
+		photos: [{ placeholder: "images at exp 1" }, { placeholder: "images at exp 1" }],
+	},
+	{
+		role: "Role",
+		company: "Company",
+		duration: "Duration",
+		description: "Descriptions",
+		photos: [{ placeholder: "images at exp 2" }, { placeholder: "images at exp 2" }],
+	},
+];
+---
+
+<Layout title="Seoyun Yang">
+	<main>
+		<header>
+			<h1>Hi! I'm Seoyun</h1>
+			<h1>Welcome to my website :)</h1>
+		</header>
+
+		<section class="row">
+			<Polaroid placeholder="polaroid like image of myself" rotate={-4} />
+			<div class="text">intro bout myself</div>
+		</section>
+
+		<section class="row reverse">
+			<Polaroid placeholder="image about school" rotate={5} />
+			<div class="details">
+				<p>Degree</p>
+				<p>School</p>
+				<p>Major</p>
+				<p>Period</p>
+			</div>
+		</section>
+
+		<h2 class="section-bar">Professional Experiences</h2>
+		{
+			experiences.map((exp, i) => (
+				<section class={`row ${i % 2 === 1 ? "reverse" : ""}`}>
+					<PolaroidStack photos={exp.photos} />
+					<div class="details">
+						<p>{exp.role}</p>
+						<p>{exp.company}</p>
+						<p>{exp.duration}</p>
+						<p class="description">{exp.description}</p>
+					</div>
+				</section>
+			))
+		}
+
+		<h2 class="section-bar">Extracurriculars</h2>
+
+		<h2 class="section-bar">Projects</h2>
+	</main>
+</Layout>
