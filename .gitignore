@@ -1,0 +1,16 @@
+# design inspo, not for upload
+data/
+
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# env
+.env
+.env.*
+
+# OS
+.DS_Store
