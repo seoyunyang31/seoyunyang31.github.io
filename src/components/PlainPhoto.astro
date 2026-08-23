@@ -1,0 +1,14 @@
+---
+interface Props {
+	src?: string;
+	alt?: string;
+	placeholder?: string;
+	class?: string;
+}
+
+const { src, alt = "", placeholder = "photo", class: className = "" } = Astro.props;
+---
+
+<div class={`plain-photo ${className}`}>
+	{src ? <img src={src} alt={alt} /> : <span>{placeholder}</span>}
+</div>

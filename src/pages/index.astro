@@ -1,6 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Polaroid from "../components/Polaroid.astro";
+import PlainPhoto from "../components/PlainPhoto.astro";
+
+const teasers = [
+	{ href: "/experience/", label: "Experience", placeholder: "experience" },
+	{ href: "/projects/", label: "Projects", placeholder: "projects" },
+	{ href: "/extracurriculars/", label: "Extracurriculars", placeholder: "extracurriculars" },
+];
 ---
 
 <Layout title="Seoyun Yang">
@@ -12,11 +19,11 @@ import Polaroid from "../components/Polaroid.astro";
 
 		<section class="row">
 			<Polaroid placeholder="polaroid like image of myself" rotate={-4} />
-			<div class="text">intro bout myself</div>
+			<div class="text">Write a short, warm 2–4 sentence bio here.</div>
 		</section>
 
 		<section class="row reverse">
-			<Polaroid placeholder="image about school" rotate={5} />
+			<PlainPhoto placeholder="image about school" />
 			<div class="details">
 				<p>Degree</p>
 				<p>School</p>
@@ -24,5 +31,17 @@ import Polaroid from "../components/Polaroid.astro";
 				<p>Period</p>
 			</div>
 		</section>
+
+		<p class="section-label">More about me</p>
+		<div class="teaser-grid">
+			{
+				teasers.map((teaser) => (
+					<a class="teaser-card" href={teaser.href}>
+						<PlainPhoto placeholder={teaser.placeholder} />
+						<p class="label">{teaser.label}</p>
+					</a>
+				))
+			}
+		</div>
 	</main>
 </Layout>

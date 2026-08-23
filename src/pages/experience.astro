@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GalleryCard from "../components/GalleryCard.astro";
+
+const experiences = [
+	{
+		title: "Role",
+		subtitle: "Company",
+		duration: "Duration",
+		description: "Descriptions",
+		photos: [{ placeholder: "photo" }, { placeholder: "photo" }],
+	},
+	{
+		title: "Role",
+		subtitle: "Company",
+		duration: "Duration",
+		description: "Descriptions",
+		photos: [{ placeholder: "photo" }],
+	},
+];
+---
+
+<Layout title="Seoyun Yang — Experience">
+	<main>
+		<h1>Experience</h1>
+		<div class="gallery-grid">
+			{experiences.map((exp) => <GalleryCard {...exp} />)}
+		</div>
+	</main>
+</Layout>
