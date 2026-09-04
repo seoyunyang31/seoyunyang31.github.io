@@ -85,15 +85,9 @@ h1 {
 }
 
 .filename {
-	font-family: var(--font-heading);
 	font-size: 1.15rem;
 	letter-spacing: 0.02em;
 	margin: 0 0 1rem;
-}
-
-.intro-heading {
-	font-family: var(--font-heading);
-	font-weight: 600;
 }
 
 .fields p {
